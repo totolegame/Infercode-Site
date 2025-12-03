@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Glimmer of Hope – Nightmare’s Breakout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at bottom, #0a0010, #000);
+      color: #fff;
+    }
 
+    header {
+      padding: 12px 20px;
+      background: rgba(0,0,0,0.9);
+      border-bottom: 2px solid #7e00ff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: #d9baff;
+      text-decoration: none;
+    }
+
+    .title {
+      font-size: 22px;
+      color: #a455ff;
+      text-transform: uppercase;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    img.banner {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 2px solid #7e00ff;
+      box-shadow: 0 0 22px #7e00ff;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #c499ff;
+      text-shadow: 0 0 12px #a455ff;
+    }
+
+    p {
+      color: #eedcff;
+      line-height: 1.6;
+    }
+
+    .panel {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(20,0,40,0.8);
+      border: 1px solid #7e00ff;
+      border-radius: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #a455ff, #7e00ff);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      background: #130021;
+      color: #d9baff;
+      border: 1px solid #7e00ff;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid #7e00ff;
+      text-decoration: none;
+      color: #d9baff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      background: #000;
+      border-top: 1px solid #7e00ff;
+      color: #d9baff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="title">Glimmer of Hope</div>
+  <a href="index.html">← Retour</a>
+</header>
+
+<main>
+
+  <img src="glimmer.jpg" class="banner" alt="Glimmer of Hope">
+
+  <h1>NIGHTMARE’S BREAKOUT</h1>
+  <p>
+    Glimmer of Hope est un jeu narratif horrifique où les émotions prennent vie.
+    Chaque chapitre représente un sentiment déchirant :
+    <br><br>
+    <strong>La colère, la solitude, la peur, la haine, la trahison...</strong>
+    <br><br>
+    Votre objectif : survivre aux cauchemars vivants et retrouver une lumière
+    enfouie profondément dans un monde fracturé.
+  </p>
+
+  <div class="panel">
+    <h2>💰 Demonite dans ce jeu</h2>
+    <p>Utilisé pour :</p>
+    <ul>
+      <li>Débloquer des épisodes bonus</li>
+      <li>Skins alternatifs des créatures</li>
+      <li>Effets spéciaux en jeu</li>
+      <li>Mode galerie étendu</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2>🛒 Boutique (FAKE pour test)</h2>
+    <button onclick="buy(500)">Acheter 500 Demonite</button>
+    <button onclick="buy(1200)">Acheter 1200 Demonite</button>
+    <textarea id="res"></textarea>
+  </div>
+
+  <a class="btn" href="index.html">Retour au portail</a>
+
+</main>
+
+<footer>
+  © 2025 Infercode Studio – Glimmer Universe
+</footer>
+
+<script>
+const API = "https://infercode-api.onrender.com/api";
+
+async function buy(amount) {
+  const res = await fetch(API + "/store/buy-coins", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ amount })
+  });
+  document.getElementById("res").value = JSON.stringify(await res.json(), null, 2);
+}
+</script>
+
+</body>
+</html>
