@@ -1,308 +1,139 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Infercode Studio – Panel Joueur</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infercode Studio</title>
+
+<style>
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1a0b06 0, #050304 45%, #000 100%);
-      color: #f5f5f5;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0b0b0b url('https://images.unsplash.com/photo-1500048993953-d23a436266cf?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat fixed;
+        color: #fff;
     }
+
+    /* Header */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 18px;
-      background: rgba(8,3,2,0.98);
-      border-bottom: 1px solid #ff4d00;
-      box-shadow: 0 7px 18px rgba(0,0,0,0.9);
+        text-align: center;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.6);
+        border-bottom: 2px solid #ff4400;
     }
-    .brand h1 {
-      font-size: 1rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
+
+    header img {
+        width: 180px;
+        filter: drop-shadow(0px 0px 10px #ff5500);
     }
-    .brand p {
-      font-size: .8rem;
-      color: #ffb37b;
+
+    h1 {
+        font-size: 40px;
+        text-transform: uppercase;
+        color: #ff3c00;
+        text-shadow: 0 0 12px #ff3c00;
     }
-    .btn {
-      border: none;
-      cursor: pointer;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: .85rem;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
+
+    /* Sections */
+    section {
+        width: 80%;
+        margin: 40px auto;
+        padding: 25px;
+        background: rgba(0,0,0,0.7);
+        border: 2px solid #ff3c00;
+        border-radius: 10px;
     }
-    .btn-primary {
-      background: linear-gradient(135deg,#ff4d00,#ffb400);
-      color: #1b0903;
-      box-shadow: 0 0 12px rgba(255,100,0,.8);
-    }
-    .btn-primary:hover {
-      box-shadow: 0 0 18px rgba(255,140,0,1);
-    }
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid #ff4d00;
-      color: #ffb37b;
-    }
-    .btn-ghost:hover {
-      background: rgba(255,77,0,.2);
-    }
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 16px 40px;
-    }
+
     h2 {
-      margin-top: 0;
+        font-size: 30px;
+        color: #ff3c00;
+        margin-bottom: 15px;
     }
-    .card {
-      background: radial-gradient(circle at top left, rgba(255,77,0,.25), transparent 60%), #130806;
-      border-radius: 14px;
-      border: 1px solid rgba(255,77,0,.6);
-      box-shadow: 0 10px 24px rgba(0,0,0,.9);
-      padding: 16px;
-      margin-bottom: 20px;
+
+    /* Jeux */
+    .game-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
     }
-    label {
-      font-size: .85rem;
-      display:block;
-      margin-top: 8px;
+
+    .game-card {
+        background: rgba(20, 20, 20, 0.8);
+        border: 2px solid #ff3c00;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
     }
-    input {
-      width: 100%;
-      padding: 7px 9px;
-      border-radius: 8px;
-      border: 1px solid #ff4d00;
-      background: #1c0e08;
-      color: #fff;
-      margin-top: 3px;
+
+    .game-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
     }
-    .row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+
+    .demonite-icon {
+        width: 50px;
+        margin-bottom: 10px;
     }
-    .row > div {
-      flex: 1 1 260px;
-    }
-    .status {
-      font-size: .9rem;
-      padding: 8px;
-      border-radius: 10px;
-      margin-top: 8px;
-      background: rgba(0,0,0,.5);
-      min-height: 20px;
-      white-space: pre-wrap;
-    }
-    .status-ok { border:1px solid rgba(0,190,80,.7); color:#a8ffbf; }
-    .status-err { border:1px solid rgba(255,70,70,.8); color:#ffaaaa; }
-    .badge {
-      display:inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.7);
-      font-size: .75rem;
-      margin-right: 4px;
-      margin-bottom: 4px;
-    }
-  </style>
+
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="brand">
-      <h1>Infercode Studio</h1>
-      <p>API Render + Site connecté</p>
+
+<header>
+    <img src="TON_IMAGE_LOGO_ICI.png" alt="Infercode Studio Logo">
+    <h1>Infercode Studio</h1>
+</header>
+
+<section>
+    <h2>Présentation</h2>
+    <p>Bienvenue sur le site officiel d’Infercode Studio. Nous développons des jeux immersifs, sombres et intenses comme le Battle Royale Infercode, Glimmer of Hope, Hazefall RPG et bien d'autres projets.</p>
+</section>
+
+<section>
+    <h2>Jeux du studio</h2>
+
+    <div class="game-grid">
+
+        <div class="game-card">
+            <img src="IMAGE_BATTLE_ROYALE.png">
+            <h3>Infercode Battle Royale</h3>
+            <p>Survivrez-vous dans un monde brûlant où seuls les plus puissants dominent ?</p>
+        </div>
+
+        <div class="game-card">
+            <img src="IMAGE_GLIMMER_OF_HOPE.png">
+            <h3>Glimmer of Hope</h3>
+            <p>Une aventure sombre basée sur vos émotions et vos choix.</p>
+        </div>
+
+        <div class="game-card">
+            <img src="IMAGE_FNAS.png">
+            <h3>Five Nights at Snappy’s</h3>
+            <p>Un fan game horrifique avec de nouveaux animatroniques.</p>
+        </div>
+
+        <div class="game-card">
+            <img src="IMAGE_RPG.png">
+            <h3>Hazefall RPG</h3>
+            <p>Un RPG sombre mêlant magie, combat et destin infernal.</p>
+        </div>
+
     </div>
-    <div>
-      <button id="btn-toggle-mode" class="btn btn-ghost">Passer en inscription</button>
-    </div>
-  </header>
+</section>
 
-  <main>
-    <!-- Connexion / inscription -->
-    <section class="card">
-      <h2 id="auth-title">Connexion</h2>
-      <p style="color:#ffb37b;font-size:.9rem;margin-bottom:6px;">
-        Ce formulaire envoie des requêtes à ton API Render : <br>
-        <code>https://infercode-api.onrender.com/api/...</code>
-      </p>
-      <label>Email</label>
-      <input type="email" id="auth-email" placeholder="ex: toi@infercode.studio">
+<section>
+    <h2>Monnaie : Demonite</h2>
+    <img class="demonite-icon" src="IMAGE_DEMONITE_ICONE.png">
 
-      <label>Mot de passe</label>
-      <input type="password" id="auth-pass" placeholder="••••••••">
+    <p>Le <strong>Demonite</strong> est la monnaie officielle de nos jeux.  
+    Tu peux l'utiliser pour acheter des skins, emotes, passes de combat et objets exclusifs.</p>
+</section>
 
-      <button id="auth-submit" class="btn btn-primary" style="margin-top:10px;">
-        Envoyer la requête
-      </button>
+<footer style="text-align:center; padding:20px; margin-top:40px; background:#000;">
+    © 2025 Infercode Studio – Tous droits réservés.
+</footer>
 
-      <div id="auth-status" class="status"></div>
-    </section>
-
-    <!-- Wallet -->
-    <section class="card">
-      <h2>Portefeuille joueur (wallet)</h2>
-      <p style="font-size:.9rem;color:#ffb37b;">
-        Ce bloc utilise <code>/api/user/wallet</code> pour récupérer les Flammes et les items.
-      </p>
-      <button id="btn-refresh-wallet" class="btn btn-primary">
-        Actualiser le wallet
-      </button>
-
-      <div style="margin-top:10px;">
-        <div><strong>Flammes :</strong> <span id="wallet-coins">?</span></div>
-        <div style="margin-top:4px;">
-          <strong>Items :</strong>
-          <div id="wallet-items"></div>
-        </div>
-      </div>
-
-      <div id="wallet-status" class="status"></div>
-    </section>
-
-    <!-- Boutique (fake) -->
-    <section class="card">
-      <h2>Boutique – achat de Flammes (FAKE pour test)</h2>
-      <p style="font-size:.9rem;color:#ffb37b;">
-        Ce bloc appelle <code>/api/store/buy-coins</code> avec un montant.
-      </p>
-      <div class="row">
-        <div>
-          <h3 style="margin-top:0;">Pack Braise</h3>
-          <p>500 Flammes – 4,99 €</p>
-          <button class="btn btn-primary btn-buy" data-amount="500">Acheter 500</button>
-        </div>
-        <div>
-          <h3 style="margin-top:0;">Pack Brasier</h3>
-          <p>1 200 Flammes – 9,99 €</p>
-          <button class="btn btn-primary btn-buy" data-amount="1200">Acheter 1200</button>
-        </div>
-        <div>
-          <h3 style="margin-top:0;">Pack Inferno</h3>
-          <p>2 800 Flammes – 19,99 €</p>
-          <button class="btn btn-primary btn-buy" data-amount="2800">Acheter 2800</button>
-        </div>
-      </div>
-
-      <div id="store-status" class="status"></div>
-    </section>
-  </main>
-
-  <script>
-    // URL de ton API Render
-    const API_BASE = "https://infercode-api.onrender.com/api";
-
-    // ---------------- AUTH (login / register fake) ----------------
-    const authTitle   = document.getElementById("auth-title");
-    const authEmail   = document.getElementById("auth-email");
-    const authPass    = document.getElementById("auth-pass");
-    const authSubmit  = document.getElementById("auth-submit");
-    const authStatus  = document.getElementById("auth-status");
-    const toggleMode  = document.getElementById("btn-toggle-mode");
-
-    let authMode = "login"; // "login" ou "register"
-
-    function setAuthStatus(text, ok = true) {
-      authStatus.textContent = text;
-      authStatus.className = "status " + (ok ? "status-ok" : "status-err");
-    }
-
-    toggleMode.addEventListener("click", () => {
-      if (authMode === "login") {
-        authMode = "register";
-        authTitle.textContent = "Inscription";
-        toggleMode.textContent = "Passer en connexion";
-      } else {
-        authMode = "login";
-        authTitle.textContent = "Connexion";
-        toggleMode.textContent = "Passer en inscription";
-      }
-      setAuthStatus("");
-    });
-
-    authSubmit.addEventListener("click", async () => {
-      const email = authEmail.value.trim();
-      const pass  = authPass.value.trim();
-
-      if (!email || !pass) {
-        setAuthStatus("Remplis email et mot de passe.", false);
-        return;
-      }
-
-      try {
-        const url = API_BASE + (authMode === "login" ? "/auth/login" : "/auth/register");
-        const res = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password: pass })
-        });
-        const data = await res.json();
-        setAuthStatus("Réponse API : " + JSON.stringify(data, null, 2), data.ok !== false);
-      } catch (err) {
-        setAuthStatus("Erreur de requête : " + err.message, false);
-      }
-    });
-
-    // ---------------- WALLET ----------------
-    const walletCoins  = document.getElementById("wallet-coins");
-    const walletItems  = document.getElementById("wallet-items");
-    const walletBtn    = document.getElementById("btn-refresh-wallet");
-    const walletStatus = document.getElementById("wallet-status");
-
-    function setWalletStatus(text, ok = true) {
-      walletStatus.textContent = text;
-      walletStatus.className = "status " + (ok ? "status-ok" : "status-err");
-    }
-
-    walletBtn.addEventListener("click", async () => {
-      try {
-        const res = await fetch(API_BASE + "/user/wallet");
-        const data = await res.json();
-        walletCoins.textContent = data.coins ?? "?";
-        walletItems.innerHTML = "";
-        (data.items || []).forEach(it => {
-          const span = document.createElement("span");
-          span.className = "badge";
-          span.textContent = it;
-          walletItems.appendChild(span);
-        });
-        setWalletStatus("Wallet récupéré depuis l'API.");
-      } catch (err) {
-        setWalletStatus("Erreur en récupérant le wallet : " + err.message, false);
-      }
-    });
-
-    // ---------------- STORE (buy coins fake) ----------------
-    const storeStatus = document.getElementById("store-status");
-    function setStoreStatus(text, ok = true) {
-      storeStatus.textContent = text;
-      storeStatus.className = "status " + (ok ? "status-ok" : "status-err");
-    }
-
-    document.querySelectorAll(".btn-buy").forEach(btn => {
-      btn.addEventListener("click", async () => {
-        const amount = Number(btn.dataset.amount || "0");
-        try {
-          const res = await fetch(API_BASE + "/store/buy-coins", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ amount })
-          });
-          const data = await res.json();
-          setStoreStatus("Réponse API : " + JSON.stringify(data, null, 2), data.ok !== false);
-        } catch (err) {
-          setStoreStatus("Erreur achat : " + err.message, false);
-        }
-      });
-    });
-  </script>
 </body>
 </html>
