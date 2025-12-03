@@ -1,128 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Five Nights at Snappy's – Infercode Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #200020 0, #020202 60%, #000 100%);
-      color: #fff;
-    }
-    header {
-      padding: 12px 20px;
-      background: rgba(0,0,0,0.9);
-      border-bottom: 1px solid #ff2e00;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header a {
-      color: #ffb86c;
-      text-decoration: none;
-    }
-    .title {
-      font-size: 20px;
-      text-transform: uppercase;
-      color: #ff4a00;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto 40px;
-      padding: 0 16px;
-    }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-      color: #ff4a00;
-      text-shadow: 0 0 10px #ff4a00;
-    }
-    p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #ffd9c0;
-    }
-    .promo-img {
-      width: 100%;
-      max-height: 360px;
-      object-fit: cover;
-      border-radius: 14px;
-      margin: 16px 0;
-      border: 2px solid #ff4a00;
-      box-shadow: 0 0 25px rgba(255,70,0,0.8);
-    }
-    .tagline {
-      font-style: italic;
-      color: #ffb86c;
-      margin-bottom: 20px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 14px;
-      background: linear-gradient(135deg, #ff7a00, #ff2e00);
-      padding: 10px 20px;
-      border-radius: 999px;
-      color: #fff;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(255,80,0,0.8);
-    }
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid #ff4a00;
-      box-shadow: none;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 12px;
-      color: #aa7e6a;
-      background: #020202;
-      border-top: 1px solid #ff4a00;
-      margin-top: 30px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Nights at Snappy’s – Infercode Studio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header>
-  <div class="title">Five Nights at Snappy's</div>
-  <a href="index.html">← Retour au portail Infercode</a>
+    <div class="logo">
+        <img src="logo.png" alt="Infercode Studio Logo">
+        <h1>Infercode Studio</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="login.html">Connexion</a>
+        <a href="register.html" class="btn">Créer un compte</a>
+    </nav>
 </header>
 
-<main>
-  <h1>Five Nights at Snappy's</h1>
-  <div class="tagline">“Tu crois connaître les nuits… jusqu’à ce que Snappy ouvre les yeux.”</div>
+<!-- HERO -->
+<section class="hero" style="background: url('snappys.jpg') center/cover no-repeat;">
+    <h2>Five Nights at Snappy’s</h2>
+    <p>Un nouveau visage de la peur… et il a un grand sourire.</p>
+</section>
 
-  <!-- Mets ici l'image que je t'ai générée, une fois uploadée dans ton repo sous le nom snappys-promo.jpg -->
-  <img class="promo-img" src="snappys-promo.jpg" alt="Five Nights at Snappy's">
+<!-- DESCRIPTION -->
+<section class="game-info">
+    <h2>Présentation du jeu</h2>
+    <p>
+        Plonge dans une expérience horrifique originale inspirée des animatronics,
+        mais avec la touche unique d’Infercode Studio. Dans ce jeu :
+    </p>
 
-  <p>
-    <strong>Five Nights at Snappy's</strong> est un fan game d'horreur où tu incarnes un
-    gardien de nuit coincé dans une pizzeria abandonnée. L’animatronique principal,
-    <strong>Snappy</strong>, un lion aux yeux lumineux, te surveille à travers les caméras
-    de sécurité.
-  </p>
+    <ul>
+        <li>Tu incarnes un technicien de nuit dans la pizzeria Snappy’s & Friends.</li>
+        <li>Des animatronics mystérieux prennent vie lorsque les lumières s’éteignent.</li>
+        <li>Snappy le Lion n’est jamais loin… et il t’entend respirer.</li>
+        <li>Gère les batteries, caméras, portes et générateurs pour survivre.</li>
+        <li>Chaque nuit révèle un morceau de l’histoire sombre de la mascotte Snappy.</li>
+    </ul>
+</section>
 
-  <p>
-    Surveille le bureau, gère l’électricité, ferme les portes au bon moment et
-    écoute chaque bruit. Un mauvais réflexe… et Snappy sera déjà derrière toi.
-  </p>
+<!-- FEATURES -->
+<section class="features">
 
-  <p>
-    Le jeu est prévu pour intégrer le système de compte Infercode, avec Demonite,
-    skins, succès et même des événements spéciaux liés aux autres jeux de l’univers.
-  </p>
+    <h2>Caractéristiques du jeu</h2>
 
-  <a class="btn" href="#">Disponible plus tard</a>
-  <a class="btn btn-secondary" href="index.html">Retour au portail</a>
-</main>
+    <div class="feature-grid">
 
+        <div class="feature-card">
+            <h3>👁️ Caméras interactives</h3>
+            <p>Observe les animatronics à travers un système de surveillance complet, 
+            mais attention… regarde trop longtemps, et ils le remarquent.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🦁 Snappy le Lion</h3>
+            <p>La mascotte principale : sourire large, dents métalliques, comportement imprévisible.
+            Il est rapide. Très rapide.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🕹️ Gameplay nerveux</h3>
+            <p>Gestion de stress, fermeture de portes, surveillance audio, panne électrique,
+            hallucinations… Saura-tu survivre 5 nuits ?</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📖 Lore profond</h3>
+            <p>Derrière chaque sourire se cache une vérité… Snappy n’est pas né innocent.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots">
+    <h2>Images du jeu</h2>
+
+    <div class="screens-grid">
+        <img src="snappy_screen1.jpg" alt="Screen 1">
+        <img src="snappy_screen2.jpg" alt="Screen 2">
+        <img src="snappy_screen3.jpg" alt="Screen 3">
+    </div>
+
+    <p class="note">
+        *(Ajoute tes propres images des caméras, animatronics ou menu)*  
+    </p>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Prêt à affronter Snappy ?</h2>
+    <p>Le jeu sortira sur PC – version test bientôt disponible !</p>
+
+    <a href="register.html" class="cta-btn">Créer un compte Infercode</a>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  © 2025 Infercode Studio – Projet fan game non officiel, hommage à FNaF.
+    <p>© 2025 Infercode Studio — Tous droits réservés</p>
 </footer>
+
 </body>
 </html>
