@@ -1,150 +1,138 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Infercode Battle Royale – Demonite Arena</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #0d0012, #000);
-      color: #fff;
-    }
-    header {
-      padding: 12px 20px;
-      background: rgba(0,0,0,0.9);
-      border-bottom: 2px solid #ff0077;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      color: #ff9bd6;
-      text-decoration: none;
-    }
-    .title {
-      font-size: 22px;
-      color: #ff0077;
-      text-transform: uppercase;
-    }
-    main {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 16px;
-    }
-    img.banner {
-      width: 100%;
-      height: 330px;
-      object-fit: cover;
-      border-radius: 14px;
-      border: 2px solid #ff0077;
-      box-shadow: 0 0 25px #ff0077;
-      margin-bottom: 20px;
-    }
-    h1 {
-      color: #ff40aa;
-      text-shadow: 0 0 12px #ff40aa;
-    }
-    p {
-      color: #ffd6f2;
-      line-height: 1.6;
-    }
-    .panel {
-      margin-top: 20px;
-      padding: 15px;
-      background: rgba(25,0,25,0.8);
-      border: 1px solid #ff0077;
-      border-radius: 10px;
-    }
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, #ff40aa, #ff0077);
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    a.btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: 1px solid #ff0077;
-      text-decoration: none;
-      color: #ff9bd6;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-      background: #000;
-      border-top: 1px solid #ff0077;
-      color: #ff9bd6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infercode Battle Royale – Site Officiel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="title">Infercode Battle Royale</div>
-  <a href="index.html">← Retour au portail</a>
+    <div class="logo">
+        <img src="logo.png" alt="Infercode Studio Logo">
+        <h1>Infercode Studio</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="login.html">Connexion</a>
+        <a href="register.html" class="btn">Créer un compte</a>
+    </nav>
 </header>
 
-<main>
-  <img src="battle-royale.jpg" class="banner" alt="Battle Royale">
+<!-- HERO -->
+<section class="hero" style="background: url('battle_royale.jpg') center/cover no-repeat;">
+    <h2>Infercode Battle Royale</h2>
+    <p>Un Battle Royale explosif, tactique, rapide… alimenté par la Demonite.</p>
+</section>
 
-  <h1>Infercode Battle Royale</h1>
-  <p>
-    Un Battle Royale explosif avec construction, pouvoirs démoniaques,
-    skins exclusifs et matchmaking rapide. Chaque partie te permet
-    d'obtenir de la <strong>Demonite</strong> que tu pourras réinvestir
-    dans des skins, des effets, des passes de combat ou encore des modes spéciaux.
-  </p>
+<!-- GAME OVERVIEW -->
+<section class="game-info">
+    <h2>Présentation du jeu</h2>
 
-  <div class="panel">
-    <h2>💰 Demonite dans ce jeu</h2>
-    <p>Utilisé pour :</p>
+    <p>
+        Infercode Battle Royale est une expérience compétitive unique,
+        combinant rapidité, construction, capacités spéciales et une progression inter-jeux
+        grâce à la monnaie <strong>Demonite</strong>.
+    </p>
+
     <ul>
-      <li>Skins personnages</li>
-      <li>Skins armes</li>
-      <li>Pass Inferno (Pass de combat)</li>
-      <li>Packs d’effets cosmétiques</li>
-      <li>Émotes démoniaques</li>
+        <li>100 joueurs dans une île massive et évolutive.</li>
+        <li>Classes avec compétences uniques : Assaut, Ombre, Technomancien, Titan…</li>
+        <li>Système de construction rapide (murs, plates-formes, pièges).</li>
+        <li>Armes stylisées, rarités, mods et améliorations.</li>
+        <li>Événements dynamiques pendant la partie : tempêtes, zones maudites…</li>
+        <li>Lien direct avec ton compte Infercode (Demonite, skins, progression).</li>
     </ul>
-  </div>
+</section>
 
-  <div class="panel">
-    <h2>🛒 Boutique du Battle Royale (FAKE pour l'instant)</h2>
-    <button onclick="buy(500)">Acheter 500 Demonite</button>
-    <button onclick="buy(1200)">Acheter 1200 Demonite</button>
-    <button onclick="buy(2800)">Acheter 2800 Demonite</button>
+<!-- DEMONITE -->
+<section class="features demonite-section">
+    <h2>Monnaie : Demonite</h2>
 
-    <textarea id="res" style="width:100%;height:80px;margin-top:10px;background:#150015;color:#ff9bd6;border:1px solid #ff0077;border-radius:8px;"></textarea>
-  </div>
+    <p>
+        La Demonite est la monnaie centrale d’Infercode Studio.  
+        Elle permet d’acheter :
+    </p>
 
-  <a href="index.html" class="btn">Retour au portail</a>
-</main>
+    <ul>
+        <li>Skins exclusifs BR</li>
+        <li>Pass de combat</li>
+        <li>Émotions, tags, animations</li>
+        <li>Éléments cosmétiques inter-jeux (BR, Snappy’s, Hazefall…)</li>
+    </ul>
 
+    <div class="demonite-display">
+        <img src="demonite.png" alt="Demonite Icon">
+        <span>1 Demonite = 1 unité virtuelle</span>
+    </div>
+
+    <a href="shop.html" class="btn-card">Accéder à la boutique Demonite</a>
+</section>
+
+<!-- CLASSES -->
+<section class="features">
+    <h2>Classes jouables</h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <h3>⚔️ Assaut</h3>
+            <p>Polyvalent, agressif, parfait pour le rush et les combats rapprochés.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🌀 Ombre</h3>
+            <p>Rapide, furtif, spécialisé dans les éliminations silencieuses.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⚡ Technomancien</h3>
+            <p>Drones, tourelles, pièges et hacks sur les boucliers ennemis.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🛡️ Titan</h3>
+            <p>Tank lourd, boucliers renforcés et attaques à zone d’impact.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MAP -->
+<section class="map-showcase">
+    <h2>La carte : “Infernia Island”</h2>
+
+    <p>
+        Une île immense remplie de zones inspirées de l’univers Infercode :
+    </p>
+
+    <ul>
+        <li>Le Cratère Maudit</li>
+        <li>Les Ruines de l’Ombre</li>
+        <li>La Vallée du Délire</li>
+        <li>Les Tours du Jugement</li>
+        <li>L’Antre du Lion (zone de boss)</li>
+    </ul>
+
+    <img src="br_map.jpg" alt="Carte Battle Royale" class="map-img">
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Rejoins le combat</h2>
+    <p>Inscris-toi dès maintenant pour obtenir des récompenses exclusives au lancement.</p>
+
+    <a href="register.html" class="cta-btn">Créer un compte Infercode</a>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  © 2025 Infercode Studio – Battle Royale Universe
+    <p>© 2025 Infercode Studio — Tous droits réservés</p>
 </footer>
-
-<script>
-const API = "https://infercode-api.onrender.com/api";
-
-async function buy(amount) {
-  const res = await fetch(API + "/store/buy-coins", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({amount})
-  });
-  const data = await res.json();
-  document.getElementById("res").value = JSON.stringify(data, null, 2);
-}
-</script>
 
 </body>
 </html>
