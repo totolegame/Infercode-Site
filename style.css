@@ -117,3 +117,32 @@ footer {
     background: #111;
     border-top: 2px solid #f50;
 }
+/* DEMONITE SECTION */
+.demonite-section {
+    background: #120000;
+    border-top: 2px solid #f50;
+    padding: 40px;
+    text-align: center;
+}
+
+.demonite-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.demonite-display img {
+    width: 70px;
+    height: 70px;
+}
+
+.map-img {
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
+    border-radius: 10px;
+    border: 2px solid #f50;
+}
+
