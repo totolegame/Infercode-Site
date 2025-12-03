@@ -1,139 +1,552 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infercode Studio</title>
-
-<style>
+  <meta charset="UTF-8" />
+  <title>Infercode Studio – Demonite Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0b0b0b url('https://images.unsplash.com/photo-1500048993953-d23a436266cf?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat fixed;
-        color: #fff;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #2b0000 0, #050505 55%, #000 100%);
+      color: #fff;
     }
-
-    /* Header */
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    /* HEADER / NAV */
     header {
-        text-align: center;
-        padding: 30px;
-        background: rgba(0, 0, 0, 0.6);
-        border-bottom: 2px solid #ff4400;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      background: rgba(0, 0, 0, 0.85);
+      border-bottom: 2px solid #ff4a00;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-area img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 12px #ff4a00);
+    }
+    .logo-text {
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ff4a00;
+      text-shadow: 0 0 12px #ff4a00;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+    nav li {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    nav li:hover {
+      border-color: #ff4a00;
+      background: radial-gradient(circle, #ff7a00 0, #b30000 40%, transparent 100%);
     }
 
-    header img {
-        width: 180px;
-        filter: drop-shadow(0px 0px 10px #ff5500);
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px 8%;
+      gap: 30px;
+    }
+    .hero-text {
+      max-width: 500px;
+    }
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #ff4a00;
+      text-shadow: 0 0 15px #ff4a00;
+    }
+    .hero p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #ffcfaa;
+    }
+    .hero-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: linear-gradient(135deg, #ff7a00, #ff3a00);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 80, 0, 0.7);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #ff4a00;
+      box-shadow: none;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(255, 120, 0, 0.9);
+    }
+    .hero-visual {
+      flex: 1;
+      min-width: 260px;
+      text-align: center;
+    }
+    .hero-visual .orb {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      background: radial-gradient(circle, #ffb100 0, #ff4a00 35%, #330000 80%);
+      box-shadow: 0 0 45px rgba(255, 90, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-visual .orb::after {
+      content: "D";
+      font-size: 120px;
+      font-weight: 900;
+      color: #1a0000;
+      text-shadow: 0 0 15px #ffcfaa;
+    }
+    .hero-visual p {
+      color: #ffd9c0;
+      font-size: 14px;
     }
 
-    h1 {
-        font-size: 40px;
-        text-transform: uppercase;
-        color: #ff3c00;
-        text-shadow: 0 0 12px #ff3c00;
+    /* MAIN SECTIONS */
+    main {
+      padding: 0 8% 60px;
     }
-
-    /* Sections */
     section {
-        width: 80%;
-        margin: 40px auto;
-        padding: 25px;
-        background: rgba(0,0,0,0.7);
-        border: 2px solid #ff3c00;
-        border-radius: 10px;
+      margin-top: 40px;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid #ff4a00;
+      background: radial-gradient(circle at top left, rgba(255, 80, 0, 0.15), transparent 55%),
+                  rgba(8, 8, 8, 0.96);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    }
+    section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ff4a00;
+    }
+    section p {
+      font-size: 14px;
+      color: #ffd9c0;
     }
 
-    h2 {
-        font-size: 30px;
-        color: #ff3c00;
-        margin-bottom: 15px;
-    }
-
-    /* Jeux */
+    /* GAMES GRID */
     .game-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
-
     .game-card {
-        background: rgba(20, 20, 20, 0.8);
-        border: 2px solid #ff3c00;
-        border-radius: 10px;
-        padding: 10px;
-        text-align: center;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #ff4a00;
+      background: #111;
     }
-
     .game-card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 10px;
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+    .game-card-body {
+      padding: 10px 12px 14px;
+    }
+    .game-card-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #ffcfaa;
+    }
+    .game-card-desc {
+      font-size: 13px;
+      color: #f6d5c0;
+      margin-bottom: 8px;
+    }
+    .game-card a {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #ffb86c;
     }
 
-    .demonite-icon {
-        width: 50px;
-        margin-bottom: 10px;
+    /* ACCOUNT / DEMONITE LAYOUT */
+    .flex-two {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .panel {
+      flex: 1;
+      min-width: 260px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #ff4a00;
+      background: rgba(10, 10, 10, 0.9);
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      margin-top: 6px;
+      margin-bottom: 3px;
+    }
+    input {
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 6px;
+      border: 1px solid #ff4a00;
+      background: #090909;
+      color: #fff;
+      font-size: 13px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      background: #050505;
+      border-radius: 8px;
+      border: 1px solid #00bb4b;
+      padding: 6px 8px;
+      font-size: 12px;
+      color: #caffd4;
+      font-family: monospace;
+      white-space: pre-wrap;
     }
 
-</style>
+    .wallet-value {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffcf70;
+      text-shadow: 0 0 6px #ffcf70;
+    }
+
+    .demonite-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #ffcf70;
+      font-size: 12px;
+      color: #ffcf70;
+      background: radial-gradient(circle, #805000 0, #260000 100%);
+      margin-top: 4px;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .shop-card {
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(15, 15, 15, 0.95);
+      border: 1px solid #ff4a00;
+      font-size: 13px;
+    }
+    .shop-title {
+      font-weight: bold;
+      color: #ffcfaa;
+      margin-bottom: 4px;
+    }
+    .shop-price {
+      color: #ffc276;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #aa7e6a;
+      background: #020202;
+      border-top: 1px solid #ff4a00;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      nav ul {
+        flex-wrap: wrap;
+      }
+      .hero {
+        padding-top: 25px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
 <header>
-    <img src="TON_IMAGE_LOGO_ICI.png" alt="Infercode Studio Logo">
-    <h1>Infercode Studio</h1>
+  <div class="logo-area">
+    <!-- Mets ici ton image de logo, uploadée dans le repo (ex: infercode-logo.png) -->
+    <img src="infercode-logo.png" alt="Infercode Studio" />
+    <div class="logo-text">Infercode Studio</div>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#section-jeux">Jeux</a></li>
+      <li><a href="#section-compte">Compte & Demonite</a></li>
+      <li><a href="snappys.html">Five Nights at Snappy's</a></li>
+    </ul>
+  </nav>
 </header>
 
-<section>
-    <h2>Présentation</h2>
-    <p>Bienvenue sur le site officiel d’Infercode Studio. Nous développons des jeux immersifs, sombres et intenses comme le Battle Royale Infercode, Glimmer of Hope, Hazefall RPG et bien d'autres projets.</p>
+<section class="hero">
+  <div class="hero-text">
+    <h1>Portail Demonite</h1>
+    <p>
+      Bienvenue sur le portail officiel d’Infercode Studio. Ici tu gères ton compte,
+      tes Demonites et tu découvres les jeux du studio : Battle Royale, RPG, horreur
+      et plus encore.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn" onclick="scrollToSection('section-compte')">Gérer mon compte</button>
+      <button class="btn btn-secondary" onclick="scrollToSection('section-jeux')">Voir les jeux</button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="orb"></div>
+    <p>Demonite : la monnaie officielle de l’enfer Infercode 🔥</p>
+  </div>
 </section>
 
-<section>
-    <h2>Jeux du studio</h2>
+<main>
+  <!-- SECTION JEUX -->
+  <section id="section-jeux">
+    <h2>Jeux Infercode</h2>
+    <p>Un aperçu des univers sur lesquels tu travailles ou que tu veux lancer.</p>
 
     <div class="game-grid">
-
-        <div class="game-card">
-            <img src="IMAGE_BATTLE_ROYALE.png">
-            <h3>Infercode Battle Royale</h3>
-            <p>Survivrez-vous dans un monde brûlant où seuls les plus puissants dominent ?</p>
+      <div class="game-card">
+        <img src="battle-royale.jpg" alt="Infercode Battle Royale" />
+        <div class="game-card-body">
+          <div class="game-card-title">Infercode Battle Royale</div>
+          <div class="game-card-desc">
+            Un champ de bataille infernal, construction, pouvoirs et Demonite à gagner.
+          </div>
         </div>
+      </div>
 
-        <div class="game-card">
-            <img src="IMAGE_GLIMMER_OF_HOPE.png">
-            <h3>Glimmer of Hope</h3>
-            <p>Une aventure sombre basée sur vos émotions et vos choix.</p>
+      <div class="game-card">
+        <img src="snappys-promo.jpg" alt="Five Nights at Snappy's" />
+        <div class="game-card-body">
+          <div class="game-card-title">Five Nights at Snappy's</div>
+          <div class="game-card-desc">
+            Fan game horreur avec Snappy le lion animatronique. Veille sur le bureau… si tu survis.
+          </div>
+          <a href="snappys.html">Voir la page du jeu</a>
         </div>
+      </div>
 
-        <div class="game-card">
-            <img src="IMAGE_FNAS.png">
-            <h3>Five Nights at Snappy’s</h3>
-            <p>Un fan game horrifique avec de nouveaux animatroniques.</p>
+      <div class="game-card">
+        <img src="glimmer.jpg" alt="Glimmer of Hope" />
+        <div class="game-card-body">
+          <div class="game-card-title">Glimmer of Hope</div>
+          <div class="game-card-desc">
+            Action-RPG émotionnel, chaque choix change la lumière – ou les ténèbres.
+          </div>
         </div>
+      </div>
 
-        <div class="game-card">
-            <img src="IMAGE_RPG.png">
-            <h3>Hazefall RPG</h3>
-            <p>Un RPG sombre mêlant magie, combat et destin infernal.</p>
+      <div class="game-card">
+        <img src="rpg-hazefall.jpg" alt="Hazefall RPG" />
+        <div class="game-card-body">
+          <div class="game-card-title">Hazefall RPG</div>
+          <div class="game-card-desc">
+            Un monde maudit, des démons, des anges et des combats tactiques.
+          </div>
         </div>
-
+      </div>
     </div>
-</section>
+  </section>
 
-<section>
-    <h2>Monnaie : Demonite</h2>
-    <img class="demonite-icon" src="IMAGE_DEMONITE_ICONE.png">
+  <!-- SECTION COMPTE & DEMONITE -->
+  <section id="section-compte">
+    <h2>Compte & Demonite (connecté à ton API Render)</h2>
+    <p>
+      Ces formulaires envoient des requêtes à ton API :
+      <code>https://infercode-api.onrender.com/api/...</code><br />
+      Pour l’instant c’est encore du FAKE, mais tout est prêt pour le vrai backend.
+    </p>
 
-    <p>Le <strong>Demonite</strong> est la monnaie officielle de nos jeux.  
-    Tu peux l'utiliser pour acheter des skins, emotes, passes de combat et objets exclusifs.</p>
-</section>
+    <div class="flex-two">
+      <!-- PANEL INSCRIPTION / CONNEXION -->
+      <div class="panel">
+        <h3>Inscription</h3>
+        <label for="reg-email">Email</label>
+        <input id="reg-email" type="email" placeholder="ex: tribalchief@infercode.com" />
+        <label for="reg-pass">Mot de passe</label>
+        <input id="reg-pass" type="password" />
+        <button class="btn" style="margin-top:10px;" onclick="registerUser()">Créer mon compte</button>
 
-<footer style="text-align:center; padding:20px; margin-top:40px; background:#000;">
-    © 2025 Infercode Studio – Tous droits réservés.
+        <h3 style="margin-top:20px;">Connexion</h3>
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" />
+        <label for="login-pass">Mot de passe</label>
+        <input id="login-pass" type="password" />
+        <button class="btn btn-secondary" style="margin-top:10px;" onclick="loginUser()">Se connecter</button>
+
+        <h4 style="margin-top:18px;">Réponse API :</h4>
+        <textarea id="auth-response" readonly>{}</textarea>
+      </div>
+
+      <!-- PANEL WALLET / DEMONITE -->
+      <div class="panel">
+        <h3>Portefeuille Demonite</h3>
+        <div class="wallet-value" id="wallet-demonite">0 Demonite</div>
+        <div class="demonite-tag">
+          <span>💎 Demonite</span>
+          <span id="wallet-extra">Non chargé</span>
+        </div>
+        <button class="btn" style="margin-top:10px;" onclick="refreshWallet()">Actualiser le wallet</button>
+
+        <h3 style="margin-top:18px;">Boutique Demonite (FAKE)</h3>
+        <div class="shop-grid">
+          <div class="shop-card">
+            <div class="shop-title">Pack Braise</div>
+            <div class="shop-price">500 Demonite – 4,99 €</div>
+            <button class="btn" onclick="buyDemonite(500)">Acheter 500</button>
+          </div>
+          <div class="shop-card">
+            <div class="shop-title">Pack Brasier</div>
+            <div class="shop-price">1200 Demonite – 9,99 €</div>
+            <button class="btn" onclick="buyDemonite(1200)">Acheter 1200</button>
+          </div>
+          <div class="shop-card">
+            <div class="shop-title">Pack Inferno</div>
+            <div class="shop-price">2800 Demonite – 19,99 €</div>
+            <button class="btn" onclick="buyDemonite(2800)">Acheter 2800</button>
+          </div>
+        </div>
+
+        <h4 style="margin-top:16px;">Réponse API :</h4>
+        <textarea id="wallet-response" readonly>{}</textarea>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 Infercode Studio – Portail Demonite.  
+  API : infercode-api.onrender.com – Hébergé gratuitement sur Render & Vercel.
 </footer>
 
+<script>
+  const API_BASE = "https://infercode-api.onrender.com/api"; // ton API actuelle
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }
+
+  async function registerUser() {
+    const email = document.getElementById("reg-email").value;
+    const password = document.getElementById("reg-pass").value;
+
+    try {
+      const res = await fetch(API_BASE + "/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      document.getElementById("auth-response").value = JSON.stringify(data, null, 2);
+    } catch (err) {
+      document.getElementById("auth-response").value = "Erreur : " + err.message;
+    }
+  }
+
+  async function loginUser() {
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-pass").value;
+
+    try {
+      const res = await fetch(API_BASE + "/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      document.getElementById("auth-response").value = JSON.stringify(data, null, 2);
+    } catch (err) {
+      document.getElementById("auth-response").value = "Erreur : " + err.message;
+    }
+  }
+
+  async function refreshWallet() {
+    try {
+      const res = await fetch(API_BASE + "/user/wallet");
+      const data = await res.json();
+      document.getElementById("wallet-response").value = JSON.stringify(data, null, 2);
+      const demonite = data.coins || data.demonite || 0;
+      document.getElementById("wallet-demonite").textContent = demonite + " Demonite";
+      document.getElementById("wallet-extra").textContent = "Items : " + (data.items ? data.items.join(", ") : "aucun");
+    } catch (err) {
+      document.getElementById("wallet-response").value = "Erreur : " + err.message;
+    }
+  }
+
+  async function buyDemonite(amount) {
+    try {
+      const res = await fetch(API_BASE + "/store/buy-coins", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount })
+      });
+      const data = await res.json();
+      document.getElementById("wallet-response").value = JSON.stringify(data, null, 2);
+      if (data.newBalance || data.demonite) {
+        const demonite = data.newBalance || data.demonite;
+        document.getElementById("wallet-demonite").textContent = demonite + " Demonite";
+      }
+    } catch (err) {
+      document.getElementById("wallet-response").value = "Erreur : " + err.message;
+    }
+  }
+</script>
 </body>
 </html>
