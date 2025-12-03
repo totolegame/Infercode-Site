@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Hazefall RPG – Scar Morningstar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #150000, #000);
+      color: #fff;
+    }
+    header {
+      padding: 12px 20px;
+      background: #000;
+      border-bottom: 2px solid #ff3300;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: #ffb3a1;
+      text-decoration: none;
+    }
+    .title {
+      font-size: 22px;
+      color: #ff3300;
+      text-transform: uppercase;
+    }
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+    img.banner {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 2px solid #ff3300;
+      box-shadow: 0 0 25px #ff3300;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #ff704d;
+      text-shadow: 0 0 15px #ff3300;
+    }
+    .panel {
+      background: rgba(50,0,0,0.7);
+      border: 1px solid #ff3300;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #ff704d, #ff3300);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      background: #250000;
+      color: #ffb3a1;
+      border: 1px solid #ff3300;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    a.btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid #ff3300;
+      text-decoration: none;
+      color: #ffb3a1;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      background: #000;
+      border-top: 1px solid #ff3300;
+      color: #ffb3a1;
+    }
+  </style>
+
+</head>
+<body>
+
+<header>
+  <div class="title">Hazefall RPG</div>
+  <a href="index.html">← Retour</a>
+</header>
+
+<main>
+
+  <img src="hazefall.jpg" class="banner">
+
+  <h1>Scar Morningstar – L’ascension du démon roi</h1>
+  <p>
+    Hazefall est un RPG narratif où vous incarnez <strong>Scar Morningstar</strong>,
+    frère aîné de Charlie Morningstar.  
+    Héros ? Tyran ? Protecteur ?  
+    Le destin de l’Enfer repose sur vos choix.
+    <br><br>
+    Explorez :  
+    <ul>
+      <li>Le royaume démoniaque</li>
+      <li>Les anges corrompus</li>
+      <li>Les factions de l’Enfer</li>
+      <li>Les pouvoirs évolutifs du sang Morningstar</li>
+    </ul>
+  </p>
+
+  <div class="panel">
+    <h2>💰 Demonite dans Hazefall</h2>
+    <p>Utilisé pour :</p>
+    <ul>
+      <li>Débloquer des formes démoniaques</li>
+      <li>Skins alternatifs de Scar</li>
+      <li>Sorts spéciaux</li>
+      <li>Accès à des zones cachées</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2>🛒 Boutique (FAKE pour test)</h2>
+    <button onclick="buy(500)">Acheter 500 Demonite</button>
+    <button onclick="buy(1200)">Acheter 1200 Demonite</button>
+    <textarea id="res"></textarea>
+  </div>
+
+  <a class="btn" href="index.html">Retour au portail</a>
+
+</main>
+
+<footer>
+  © 2025 Infercode Studio – Hazefall Universe
+</footer>
+
+<script>
+const API = "https://infercode-api.onrender.com/api";
+
+async function buy(amount) {
+  const res = await fetch(API + "/store/buy-coins", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ amount })
+  });
+  document.getElementById("res").value = JSON.stringify(await res.json(), null, 2);
+}
+</script>
+
+</body>
+</html>
