@@ -208,3 +208,39 @@ footer {
     border-radius: 10px;
     border: 2px solid #f50;
 }
+
+.auth {
+    max-width: 400px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.auth form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth input {
+    padding: 12px;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
+    border-radius: 6px;
+}
+
+.auth button {
+    padding: 12px;
+    background: #f50;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#message {
+    margin-top: 15px;
+    color: #f50;
+    font-weight: bold;
+}
