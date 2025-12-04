@@ -187,3 +187,24 @@ footer {
     border-radius: 10px;
     border: 2px solid #f50;
 }
+
+/* ZOMBIES MODE */
+.map-showcase, .combat-section {
+    background: #120000;
+    padding: 40px;
+}
+
+.map-showcase ul, .combat-section ul {
+    max-width: 700px;
+    margin: auto;
+    line-height: 28px;
+    text-align: left;
+}
+
+.map-img {
+    margin-top: 20px;
+    display: block;
+    width: 90%;
+    border-radius: 10px;
+    border: 2px solid #f50;
+}
